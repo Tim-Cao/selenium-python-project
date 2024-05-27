@@ -12,6 +12,8 @@ _threadLocal = threading.local()
 
 def start():
     _threadLocal.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+    _threadLocal.driver.delete_all_cookies()
+    _threadLocal.driver.maximize_window()
 
     return _threadLocal.driver
 
